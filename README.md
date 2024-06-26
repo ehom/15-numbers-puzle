@@ -1,1 +1,1 @@
-# 15-numbers-puzle
+# fifteen-puzzle
