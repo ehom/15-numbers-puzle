@@ -4,6 +4,7 @@ body {
     align-items: center;
     height: 100vh; /* Make the body fill the entire viewport height */
     margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 #puzzle-wrapper {
@@ -30,25 +31,37 @@ body {
     font-size: 24px;
 }
 
+.tile.small {
+    font-size: 16px;
+}
+
 .empty {
     background-color: #ccc;
 }
 
-#shuffle-button {
-    display: block;
-    margin: 10px auto; /* Add some margin for spacing */
-    width: 100px; /* Adjust button width */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-#emoji-set-selector {
-    display: block;
-    margin: 10px auto; /* Adjust margin to position it lower */
-    width: 100px; /* Adjust selector width */
+.button-container button {
+    margin: 0 5px;
+    padding: 10px;
+    font-size: 16px;
 }
 
 #win-message {
     text-align: center;
     font-weight: bold;
     margin-top: 10px;
+}
+
+#emoji-set-selector {
+    display: block;
+    margin: 10px auto; /* Adjust margin to position it lower */
+    width: 200px; /* Adjust selector width */
+    padding: 10px;
+    font-size: 16px;
 }
 
