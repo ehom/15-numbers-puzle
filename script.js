@@ -1,12 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const puzzleContainer = document.getElementById('puzzle-container');
     const shuffleButton = document.getElementById('shuffle-button');
+    const emojiSetSelector = document.getElementById('emoji-set-selector');
     const winMessage = document.getElementById('win-message');
     let tiles = [];
     let emptyTileIndex = 15;
+    let currentEmojiSet = 'set1';
+
+    const emojiSets = {
+        set1: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'],
+        set2: ['🀇', '🀈', '🀉', '🀊', '🀋', '🀌', '🀍', '🀎', '🀏', '🀆', '🀙', '🀚', '🀛', '🀜', '🀝'],
+        set3: ["ä", "ḇ", "ḉ", "ḍ", "ȅ", "ƒ", "ǥ", "ⱨ", "ĩ", "Ɉ", "ḵ", "l", "Ṁ", "ṋ", "ö"],
+        set4: ["あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ", "さ", "し", "す", "せ", "そ"],
+        set5: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二", "十三", "十四", "十五"]
+    };
 
     function init() {
-        tiles = [...Array(15).keys()].map(n => n + 1);
+        tiles = [...emojiSets[currentEmojiSet]];
         tiles.push(null); // Represents the empty space
         renderPuzzle();
         addEventListeners();
@@ -35,6 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         shuffleButton.addEventListener('click', shufflePuzzle);
+        emojiSetSelector.addEventListener('change', (event) => {
+            currentEmojiSet = event.target.value;
+            init();
+        });
     }
 
     function moveTile(index) {
@@ -61,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkWin() {
-        const isWin = tiles.slice(0, 15).every((tile, index) => tile === index + 1);
+        const isWin = tiles.slice(0, 15).every((tile, index) => tile === emojiSets[currentEmojiSet][index]);
         if (isWin) {
             winMessage.textContent = 'You Win!';
         } else {

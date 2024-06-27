@@ -1,45 +1,54 @@
 body {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make the body fill the entire viewport height */
+    margin: 0;
+}
+
+#puzzle-wrapper {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
 }
 
 #puzzle-container {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(4, 1fr);
     gap: 5px;
+    width: 300px;
+    margin: 10px auto; /* Add some margin for spacing */
 }
 
 .tile {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    width: 70px;
+    height: 70px;
+    border: 1px solid black;
     font-size: 24px;
-    cursor: pointer;
-    user-select: none;
 }
 
-.tile.empty {
-    background-color: #fff;
-    cursor: default;
+.empty {
+    background-color: #ccc;
 }
 
 #shuffle-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+    display: block;
+    margin: 10px auto; /* Add some margin for spacing */
+    width: 100px; /* Adjust button width */
+}
+
+#emoji-set-selector {
+    display: block;
+    margin: 10px auto; /* Adjust margin to position it lower */
+    width: 100px; /* Adjust selector width */
 }
 
 #win-message {
-    margin-top: 20px;
-    font-size: 24px;
-    color: green;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
 }
 

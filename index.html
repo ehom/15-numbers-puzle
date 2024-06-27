@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>15 Number Puzzle</title>
+    <title>Emoji Puzzle</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="puzzle-container"></div>
-    <button id="shuffle-button">Shuffle</button>
-    <div id="win-message"></div>
+    <div id="puzzle-wrapper">
+        <select id="emoji-set-selector">
+            <option value="set1">Set 1</option>
+            <option value="set2">Set 2</option>
+            <option value="set3">Set 3</option>
+            <option value="set4">Set 4</option>
+            <option value="set5">Set 5</option>
+        </select>
+        <div id="puzzle-container"></div>
+        <button id="shuffle-button">Shuffle</button>
+        <div id="win-message"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
