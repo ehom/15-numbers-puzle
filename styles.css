@@ -5,17 +5,13 @@ body {
     height: 100vh; /* Make the body fill the entire viewport height */
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Add background color to the app */
+    background-color: #f0f0f0; /* Light gray background color for the app */
 }
 
 #puzzle-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff; /* Add background color to the puzzle wrapper */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #puzzle-container {
@@ -34,6 +30,9 @@ body {
     height: 70px;
     border: 1px solid black;
     font-size: 24px;
+    background-color: #ffcc80; /* Light orange color for tiles */
+    color: #333; /* Dark text color for contrast */
+    border-radius: 5px; /* Rounded corners for tiles */
 }
 
 .tile.small {
@@ -41,7 +40,7 @@ body {
 }
 
 .empty {
-    background-color: #ccc;
+    background-color: #ccc; /* Gray color for the empty tile */
 }
 
 #shuffle-button {
@@ -50,15 +49,6 @@ body {
     width: 150px; /* Adjust button width */
     padding: 10px;
     font-size: 16px;
-    background-color: #007bff; /* Button background color */
-    color: white; /* Button text color */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#shuffle-button:hover {
-    background-color: #0056b3; /* Darker background on hover */
 }
 
 #emoji-set-selector {
@@ -73,6 +63,5 @@ body {
     text-align: center;
     font-weight: bold;
     margin-top: 10px;
-    color: green; /* Win message color */
 }
 

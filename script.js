@@ -6,16 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let tiles = [];
     let emptyTileIndex = 15;
     let currentEmojiSet = 'set1';
-    let shuffled = false; // Flag to track if the shuffle button was clicked
 
     const emojiSets = {
         set1: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'],
-        set2: ['🀇', '🀈', '🀉', '🀊', '🀋', '🀌', '🀍', '🀎', '🀏', '🀆', '🀙', '🀚', '🀛', '🀜', '🀝'],
-        set3: ["ä", "ḇ", "ḉ", "ḍ", "ȅ", "ƒ", "ǥ", "ⱨ", "ĩ", "Ɉ", "ḵ", "l", "Ṁ", "ṋ", "ö"],
-        set4: ["あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ", "さ", "し", "す", "せ", "そ"],
+        set2: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"],
+        set7: ['🀇', '🀈', '🀉', '🀊', '🀋', '🀌', '🀍', '🀎', '🀏', '🀆', '🀙', '🀚', '🀛', '🀜', '🀝'],
+        set3: ["あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ", "さ", "し", "す", "せ", "そ"],
+        set4: ["诶", "比", "西", "迪", "伊", "艾弗", "吉", "艾尺", "艾", "杰", "开", "艾勒", "艾马", "艾娜", "哦"],
         set5: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二", "十三", "十四", "十五"],
-        set6: ["하나", "둘", "셋", "넷", "다섯", "여섯", "일곱", "여덟", "아홉", "열", "열하나", "열둘", "열셋", "열넷", "열다섯"],
-        set7: ["诶", "比", "西", "迪", "伊", "艾弗", "吉", "艾尺", "艾", "杰", "开", "艾勒", "艾马", "艾娜", "哦"]
+        set6: ["하나", "둘", "셋", "넷", "다섯", "여섯", "일곱", "여덟", "아홉", "열", "열하나", "열둘", "열셋", "열넷", "열다섯"]
     };
 
     function init() {
@@ -23,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tiles.push(null); // Represents the empty space
         renderPuzzle();
         addEventListeners();
+        winMessage.textContent = ''; // Turn off "You Win!" message
     }
 
     function renderPuzzle() {
@@ -50,13 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 moveTile(parseInt(event.target.dataset.index));
             }
         });
-        shuffleButton.addEventListener('click', () => {
-            shufflePuzzle();
-            shuffled = true; // Set the flag to true when shuffle button is clicked
-        });
+        shuffleButton.addEventListener('click', shufflePuzzle);
         emojiSetSelector.addEventListener('change', (event) => {
             currentEmojiSet = event.target.value;
-            shuffled = false; // Reset the flag when the emoji set is changed
             init();
         });
     }
@@ -86,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkWin() {
         const isWin = tiles.slice(0, 15).every((tile, index) => tile === emojiSets[currentEmojiSet][index]);
-        if (isWin && shuffled) {
+        if (isWin) {
             winMessage.textContent = 'You Win!';
         } else {
             winMessage.textContent = '';
