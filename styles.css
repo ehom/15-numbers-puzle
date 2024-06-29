@@ -5,7 +5,7 @@ body {
     height: 100vh; /* Make the body fill the entire viewport height */
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Light gray background color for the app */
+    background-color: #f0f0f0; /* Add background color to the app */
 }
 
 #puzzle-wrapper {
@@ -30,9 +30,8 @@ body {
     height: 70px;
     border: 1px solid black;
     font-size: 24px;
-    background-color: #ffcc80; /* Light orange color for tiles */
-    color: #333; /* Dark text color for contrast */
-    border-radius: 5px; /* Rounded corners for tiles */
+    background-color: #ffffff; /* Change background color to white */
+    color: #333333; /* Change text color to dark gray */
 }
 
 .tile.small {
@@ -40,12 +39,17 @@ body {
 }
 
 .empty {
-    background-color: #ccc; /* Gray color for the empty tile */
+    background-color: #ccc;
 }
 
-#shuffle-button {
-    display: block;
-    margin: 10px auto; /* Add some margin for spacing */
+#button-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add some space between buttons */
+    margin: 10px auto; /* Adjust margin for spacing */
+}
+
+#shuffle-button, #reset-button {
     width: 150px; /* Adjust button width */
     padding: 10px;
     font-size: 16px;
